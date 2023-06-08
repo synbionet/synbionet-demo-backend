@@ -1,0 +1,37 @@
+{
+  "name": "events-with-ethersjs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "indexer.ts",
+  "scripts": {
+    "build": "tsc",
+    "indexer": "tsc && node dist/indexer.js",
+    "app": "tsc && node dist/app.js",
+    "test": "vitest run"
+  },
+  "author": "MITRE",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "@types/koa": "^2.13.6",
+    "@types/koa__cors": "^4.0.0",
+    "@types/koa-bodyparser": "^4.3.10",
+    "@types/koa-json": "^2.0.20",
+    "@types/koa-router": "^7.4.4",
+    "@types/node": "^18.15.12",
+    "typescript": "^5.0.4",
+    "vite": "^4.3.9",
+    "vitest": "^0.32.0"
+  },
+  "dependencies": {
+    "@koa/cors": "^4.0.0",
+    "axios": "^1.4.0",
+    "better-sqlite3": "^8.4.0",
+    "dotenv": "^16.1.4",
+    "ethers": "^5.7.2",
+    "knex": "^2.4.2",
+    "koa": "^2.14.2",
+    "koa-bodyparser": "^4.4.0",
+    "koa-json": "^2.0.2",
+    "koa-router": "^12.0.0"
+  }
+}

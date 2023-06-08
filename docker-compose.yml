@@ -1,0 +1,24 @@
+services:
+  anvil:
+    build: ./dockers/anvil
+    ports:
+      - "8545:8545"
+  eventapp:
+    build:
+      context: .
+      dockerfile: app.Dockerfile
+    ports:
+      - "8081:8081"
+    depends_on:
+      - anvil
+  eventindexer:
+    build:
+      context: .
+      dockerfile: indexer.Dockerfile
+    environment:
+      - ANVIL_URL=ws://anvil:8545
+      - BIONET_APP=http://eventapp:8081/event/save
+      - BIONET_ADDRESS=0xA51c1fc2f0D1a1b8494Ed1FE312d7C3a78Ed91C0
+    depends_on:
+      - anvil
+      - eventapp
