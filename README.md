@@ -17,4 +17,8 @@ The webapp provides the current endpoints:
 - GET `/exchanges` returns a list of all exchanges
 - GET `/services` returns a list of all services
 
+## Anvil
+Contains the pre-deployed contracts. See [Anvil](dockers/anvil/README.md) for details and contract addresses
+
+
 
