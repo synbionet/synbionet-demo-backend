@@ -17,7 +17,7 @@ const ABI = [
     "event ServiceCreated(uint256 indexed id, address indexed owner, string name, string uri, uint256 when)",
     "event ServiceUpdatedMetaUri(uint256 indexed id, string uri, uint256 when)",
     "event ServiceDeactivated(uint256 indexed id, uint256 when)",
-    "event Offered(uint256 indexed exchangeId, uint256 indexed serviceId, address buyer, address seller, address moderator, uint256 when, string uri)",
+    "event Offered(uint256 indexed exchangeId, uint256 indexed serviceId, address buyer, address seller, address moderator, uint256 price, uint256 when, string uri)",
     "event Funded(uint256 indexed exchangeId, uint256 price, uint256 when)",
     "event Disputed(uint256 indexed exchangeId, uint256 when)",
     "event Resolved(uint256 indexed exchangeId, uint8 refundType, uint256 when)",
@@ -87,7 +87,7 @@ async function main(anvil: string, app: string, bionet: string) {
         });
     });
 
-    contract.on('Offered', async (exchangeId, serviceId, buyer, seller, moderator, when, uri) => {
+    contract.on('Offered', async (exchangeId, serviceId, buyer, seller, moderator, price, when, uri) => {
         await shipit(app, {
             event: 'Offered',
             data: {
@@ -97,6 +97,7 @@ async function main(anvil: string, app: string, bionet: string) {
                 buyer: buyer,
                 seller: seller,
                 moderator: moderator,
+                price: price.toNumber(),
                 when: when.toNumber(),
                 uri: uri,
             }
