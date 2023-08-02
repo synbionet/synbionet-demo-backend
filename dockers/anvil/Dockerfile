@@ -7,5 +7,5 @@ COPY state.json ./
 EXPOSE 8545
 
 # "--host 0.0.0.0"
-# CMD ["anvil --host 0.0.0.0 --load-state ./state.json"]
-CMD ["anvil --host 0.0.0.0"]
+CMD ["anvil --host 0.0.0.0 --load-state ./state.json"]
+# CMD ["anvil --host 0.0.0.0"]
